@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Book {
 
@@ -53,6 +50,6 @@ public class Book {
     }
 
     public Set<Chapter> getTableOfContent() {
-        return new HashSet<>(this.getChapters());
+        return new LinkedHashSet<>(this.getChapters());
     }
 }
