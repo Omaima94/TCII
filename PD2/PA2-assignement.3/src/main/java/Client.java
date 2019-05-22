@@ -1,4 +1,6 @@
+import java.util.List;
+
 public interface Client {
 
-    void receive(Message message);
+    void receive(List<Message> message);
 }
