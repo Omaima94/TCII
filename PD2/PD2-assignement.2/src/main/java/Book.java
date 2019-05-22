@@ -10,6 +10,12 @@ public class Book {
     private List<Chapter> chapters;
 
     public Book(String name, String author) {
+        if (name == null || name.isEmpty() || author == null || author.isEmpty()) {
+            throw new IllegalArgumentException("Arguments cannot be null");
+        }
+        this.name = name;
+        this.author = author;
+        this.chapters = new ArrayList<>();
     }
 
     public String getName() {
@@ -37,9 +43,16 @@ public class Book {
     }
 
     public void addChapter(String name, String number, Chapter chapter) {
+        if (this.getChapters() != null) {
+
+            int index = this.chapters.indexOf(new Chapter(name, number));
+
+            this.chapters.add(index + 1, chapter);
+
+        }
     }
 
     public Set<Chapter> getTableOfContent() {
-        return new HashSet<>();
+        return new HashSet<>(this.getChapters());
     }
 }
